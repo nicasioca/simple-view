@@ -1,8 +1,32 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import useSWR from 'swr'
+
+const fetcher = (url: RequestInfo) => fetch(url).then((res) => res.json());
+
+function Content () {
+  const { data, error } = useSWR(
+    "http://localhost:8080/fruits/12",
+    fetcher
+  );
+
+  if (error) return "An error has occurred.";
+  if (!data) return "Loading...";
+  return (
+    <div>
+      <div>{data.fruit_id}</div>
+      <div>{data.name}</div>
+      <div>{data.datetime_utc}</div>
+      <div>{data.unit_price}</div>
+      <div>{data.sku}</div>
+    </div>
+  );
+}
 
 const Home: NextPage = () => {
+
+  
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -65,6 +89,9 @@ const Home: NextPage = () => {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
+        </div>
+        <div>
+          <Content />
         </div>
       </main>
 
