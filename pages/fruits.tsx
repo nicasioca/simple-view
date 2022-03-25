@@ -1,13 +1,14 @@
 import type { NextPage } from 'next'
-import Image from 'next/image'
 import Layout from '../components/layout';
+import Fetcher from '../components/fetcher';
 
-const Home: NextPage = () => {
+
+const Fruits: NextPage = () => {
   return (
     <Layout>
-      <div>Fill in here!</div>
+      <Fetcher/>
     </Layout>
   )
 }
 
-export default Home
+export default Fruits
