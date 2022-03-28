@@ -18,7 +18,7 @@ const Navbar: NextPage = () => {
           <Link href="/fruits"><a>Fruits</a></Link>
         </div>
         <div>
-          <Link href="/fruits"><a>Suppliers</a></Link>
+          <Link href="/login"><a>Login</a></Link>
         </div>
       </div>
     </div>

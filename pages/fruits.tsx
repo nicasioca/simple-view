@@ -6,7 +6,9 @@ import Fetcher from '../components/fetcher';
 const Fruits: NextPage = () => {
   return (
     <Layout>
-      <Fetcher/>
+      <section>
+        <Fetcher />
+      </section>
     </Layout>
   )
 }
